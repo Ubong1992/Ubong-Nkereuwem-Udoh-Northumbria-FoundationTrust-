@@ -106,6 +106,18 @@ namespace NorthumbriaNhsProject.Feature
             await testRunner.CollectScenarioErrorsAsync();
         }
         
+        public virtual async global::System.Threading.Tasks.Task FeatureBackgroundAsync()
+        {
+#line 8
+#line hidden
+#line 10
+ await testRunner.GivenAsync("the user is on the northumbria nhs homepage", ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
+#line hidden
+#line 11
+ await testRunner.AndAsync("verify the homepage url is returned as \"https://www.northumbria.nhs.uk/\"", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+#line hidden
+        }
+        
         async global::System.Threading.Tasks.Task Xunit.IAsyncLifetime.InitializeAsync()
         {
             try
@@ -139,7 +151,7 @@ namespace NorthumbriaNhsProject.Feature
             string[] tagsOfScenario = ((string[])(null));
             global::System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new global::System.Collections.Specialized.OrderedDictionary();
             global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("Search for quality and safety using the search button", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 9
+#line 13
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((global::Reqnroll.TagHelper.ContainsIgnoreTag(scenarioInfo.CombinedTags) || global::Reqnroll.TagHelper.ContainsIgnoreTag(featureTags)))
@@ -149,42 +161,39 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 await this.ScenarioStartAsync();
-#line 10
- await testRunner.GivenAsync("the user is on the northumbria nhs homepage", ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
-#line hidden
-#line 11
- await testRunner.AndAsync("verify the homepage url is returned as \"https://www.northumbria.nhs.uk/\"", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
-#line hidden
-#line 12
- await testRunner.WhenAsync("the user enter \"quality and safety\" on the search field", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
-#line hidden
-#line 13
- await testRunner.AndAsync("click on the search button", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+#line 8
+await this.FeatureBackgroundAsync();
 #line hidden
 #line 14
+ await testRunner.WhenAsync("the user enter \"quality and safety\" on the search field", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
+#line hidden
+#line 15
+ await testRunner.AndAsync("click on the search button", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+#line hidden
+#line 16
  await testRunner.ThenAsync("the result based on the search criteria will be returned as a linkText \"Quality a" +
                         "nd safety\"", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
 #line hidden
-#line 15
+#line 17
  await testRunner.AndAsync("the user verify that the search result page url is returned as \"https://www.north" +
                         "umbria.nhs.uk/search?query=quality+and+safety#search-anchor\"", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 16
+#line 18
  await testRunner.AndAsync("the user will be able access quality and safty link on the search result page", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 17
+#line 19
  await testRunner.AndAsync("verify the quality and safety page url is returned as \"https://www.northumbria.nh" +
                         "s.uk/about-us/quality-and-safety\"", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 18
+#line 20
  await testRunner.AndAsync("the user selects the \"Continually improving services\" card on the quality and saf" +
                         "ety page", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 19
+#line 21
  await testRunner.AndAsync("verify the Continually improving servces page is returned as \"https://www.northum" +
                         "bria.nhs.uk/about-us/quality-and-safety/continually-improving-services\"", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 20
+#line 22
  await testRunner.AndAsync("the relevant information about the section will be returned on the page", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
             }
@@ -199,8 +208,8 @@ this.ScenarioInitialize(scenarioInfo);
             string[] tagsOfScenario = ((string[])(null));
             global::System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new global::System.Collections.Specialized.OrderedDictionary();
             global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("Search for quality and safety using the enter keyboard button", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 23
- this.ScenarioInitialize(scenarioInfo);
+#line 25
+this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((global::Reqnroll.TagHelper.ContainsIgnoreTag(scenarioInfo.CombinedTags) || global::Reqnroll.TagHelper.ContainsIgnoreTag(featureTags)))
             {
@@ -209,11 +218,8 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 await this.ScenarioStartAsync();
-#line 24
- await testRunner.GivenAsync("the user is on the northumbria nhs homepage", ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
-#line hidden
-#line 25
- await testRunner.AndAsync("verify the homepage url is returned as \"https://www.northumbria.nhs.uk/\"", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+#line 8
+await this.FeatureBackgroundAsync();
 #line hidden
 #line 26
  await testRunner.WhenAsync("the user enter \"quality and safety\" on the search field", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
@@ -246,6 +252,84 @@ this.ScenarioInitialize(scenarioInfo);
 #line hidden
 #line 34
  await testRunner.AndAsync("the relevant information about the section will be returned on the page", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+#line hidden
+            }
+            await this.ScenarioCleanupAsync();
+        }
+        
+        [Xunit.SkippableFactAttribute(DisplayName="Search with an empty field")]
+        [Xunit.TraitAttribute("FeatureTitle", "Search Functionality")]
+        [Xunit.TraitAttribute("Description", "Search with an empty field")]
+        public async global::System.Threading.Tasks.Task SearchWithAnEmptyField()
+        {
+            string[] tagsOfScenario = ((string[])(null));
+            global::System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new global::System.Collections.Specialized.OrderedDictionary();
+            global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("Search with an empty field", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 36
+this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            if ((global::Reqnroll.TagHelper.ContainsIgnoreTag(scenarioInfo.CombinedTags) || global::Reqnroll.TagHelper.ContainsIgnoreTag(featureTags)))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                await this.ScenarioStartAsync();
+#line 8
+await this.FeatureBackgroundAsync();
+#line hidden
+#line 37
+ await testRunner.WhenAsync("the user enter \"\" on the search field", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
+#line hidden
+#line 38
+ await testRunner.AndAsync("click on the search button", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+#line hidden
+#line 39
+ await testRunner.ThenAsync("the user should see a suggestion message \"You might also be interested in...\"", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
+#line hidden
+            }
+            await this.ScenarioCleanupAsync();
+        }
+        
+        [Xunit.SkippableFactAttribute(DisplayName="Search with an invalid search criteria")]
+        [Xunit.TraitAttribute("FeatureTitle", "Search Functionality")]
+        [Xunit.TraitAttribute("Description", "Search with an invalid search criteria")]
+        public async global::System.Threading.Tasks.Task SearchWithAnInvalidSearchCriteria()
+        {
+            string[] tagsOfScenario = ((string[])(null));
+            global::System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new global::System.Collections.Specialized.OrderedDictionary();
+            global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("Search with an invalid search criteria", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 41
+this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            if ((global::Reqnroll.TagHelper.ContainsIgnoreTag(scenarioInfo.CombinedTags) || global::Reqnroll.TagHelper.ContainsIgnoreTag(featureTags)))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                await this.ScenarioStartAsync();
+#line 8
+await this.FeatureBackgroundAsync();
+#line hidden
+#line 42
+ await testRunner.WhenAsync("the user enter \"ubong\" on the search field", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
+#line hidden
+#line 43
+ await testRunner.AndAsync("press the keyboard enter button", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+#line hidden
+                global::Reqnroll.Table table1 = new global::Reqnroll.Table(new string[] {
+                            "PageLink",
+                            "FileLink",
+                            "PageResults",
+                            "FileResults"});
+                table1.AddRow(new string[] {
+                            "0 Pages found that matched your search",
+                            "0 Files found that matched your search",
+                            "No page results found.",
+                            "No file results found."});
+#line 44
+ await testRunner.ThenAsync("the following results with links and messages will be returned", ((string)(null)), table1, "Then ");
 #line hidden
             }
             await this.ScenarioCleanupAsync();

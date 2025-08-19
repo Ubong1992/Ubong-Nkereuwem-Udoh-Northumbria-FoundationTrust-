@@ -1,3 +1,4 @@
+using NorthumbriaNhsProject.Model;
 using NorthumbriaNhsProject.Page;
 using Reqnroll;
 
@@ -91,6 +92,17 @@ namespace NorthumbriaNhsProject.StepDefinitions
         public async Task WhenPressTheKeyboardEnterButton()
         {
             await _homePage.PressTheKeyboardEnterButton();
+        }
+        [Then("the user should see a suggestion message {string}")]
+        public async Task ThenTheUserShouldSeeASuggestionMessage(string infoMessage)
+        {
+            await _homePage.VerifyInfoMessageIsDisplayed(infoMessage);
+        }
+        [Then("the following results with links and messages will be returned")]
+        public async Task ThenTheFollowingResultsWithLinksAndMessagesWillBeReturned(DataTable dataTable)
+        {
+            var dataStore = dataTable.CreateInstance<DataStore>();
+            await _homePage.VerifyThatTheInvalidSearchResultsAreReturned(dataStore.PageLink,dataStore.FileLink,dataStore.PageResults,dataStore.FileResults);
         }
 
 
